@@ -1,95 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Country Population</title>
-	<!-- Download 'countries.js'   -->
-	<script type="text/javascript" src="js/countries.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript">
-		function addButton(){
-
-			var countryNameSelected=$('#addcountryId').val();
-			if(countryNameSelected==' ')
-				alert('Please select a country');
-			else{
-
-				//Creating a 'button' , setting properties to it and then adding it to html
-
-				var theButton=document.createElement("button");
-				theButton.className="buttons";
-				theButton.setAttribute("id", "button"+countryNameSelected);
-				var buttonValue=document.createTextNode(countryNameSelected);
-				theButton.appendChild(buttonValue);
-				//theButton.css("color",getRandomColor());
-				theButton.setAttribute('style', 'color:'+ getRandomColor()+'');
-
-				$('.buttonSection').append(theButton);
-			}
-		}
-
-		function removeButton(){
-
-			var countryNameSelected=$('#removecountryId').val();
-			var requiredId='#'+countryNameSelected;
-			var buttonToRemove=$('.buttonSection').find('#button'+countryNameSelected);
-
-			if(countryNameSelected==' ')
-				alert('Please select a country !');
-			if(buttonToRemove.length == 0)
-				alert('Cannot remove a country that is not previously added. !')
-			else{
-				buttonToRemove.remove();
-			}
-
-		}
-
-		//Code from codereview.com
-		function getRandomColor() {
-		    var chars = '0123456789ABCDEF'.split('');
-		    var hex = '#';
-		    for (var i = 0; i < 6; i++) {
-		        hex += chars[Math.floor(Math.random() * 16)];
-		    }
-		    return hex;
- }
-	</script>
+    <title>Country Population</title>
+    <!-- Download 'countries.js'   -->
+    <script type="text/javascript" src="js/countryPopulation.js"></script>
+    <script type="text/javascript" src="js/countries.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
 </head>
+
 <body>
-	<h2>Population details </h2>
-
-	
-		<fieldset>
-			<legend>Details : </legend>
-			<form>
-				
-				<select id="addcountryId">
-				  <option value=" ">Select a country</option>	
-				  <option value="India">India</option>
-				  <option value="Unites States">Unites States</option>
-				  <option value="Canada">Canada</option>
-				  <option value="China">China</option>
-				</select>
-				<input type="button" value="ADD" onclick="addButton()"> 
-
-				<select id="removecountryId">
-				  <option value=" ">Select a country</option>	
-				  <option value="India">India</option>
-				  <option value="Unites States">Unites States</option>
-				  <option value="Canada">Canada</option>
-				  <option value="China">China</option>
-				</select>
-				<input type="button" value="REMOVE" onclick="removeButton()"> 
-			</form>
-
-			<div class="buttonSection">
-				
-			</div>
+    <h2>Population details </h2>
 
 
-		</fieldset>
+    <fieldset>
+        <legend>Details : </legend>
+        <form>
 
-	
-	
+            <select id="addcountryId">
+                <option value=" ">Select a country</option>
+                <option value="India">India</option>
+                <option value="Unites States">Unites States</option>
+                <option value="Canada">Canada</option>
+                <option value="China">China</option>
+            </select>
+            <input type="button" value="ADD" onclick="addButton()">
+
+            <select id="removecountryId">
+                <option value=" ">Select a country</option>
+                <option value="India">India</option>
+                <option value="Unites States">Unites States</option>
+                <option value="Canada">Canada</option>
+                <option value="China">China</option>
+            </select>
+            <input type="button" value="REMOVE" onclick="removeButton()">
+        </form>
+
+        <div class="buttonSection">
+
+        </div>
+
+
+    </fieldset>
+
+
+
 
 </body>
+
 </html>

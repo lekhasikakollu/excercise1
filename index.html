@@ -20,7 +20,9 @@
 				theButton.setAttribute("id", "button"+countryNameSelected);
 				var buttonValue=document.createTextNode(countryNameSelected);
 				theButton.appendChild(buttonValue);
-				
+				//theButton.css("color",getRandomColor());
+				theButton.setAttribute('style', 'color:'+ getRandomColor()+'');
+
 				$('.buttonSection').append(theButton);
 			}
 		}
@@ -40,10 +42,20 @@
 			}
 
 		}
+
+		//Code from codereview.com
+		function getRandomColor() {
+		    var chars = '0123456789ABCDEF'.split('');
+		    var hex = '#';
+		    for (var i = 0; i < 6; i++) {
+		        hex += chars[Math.floor(Math.random() * 16)];
+		    }
+		    return hex;
+ }
 	</script>
 </head>
 <body>
-	<h2>Please select the country : </h2>
+	<h2>Population details </h2>
 
 	
 		<fieldset>

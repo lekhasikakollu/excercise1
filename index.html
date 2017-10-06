@@ -9,34 +9,33 @@
 		function addButton(){
 
 			var countryNameSelected=$('#addcountryId').val();
-			// alert(countryNameSelected);
 			if(countryNameSelected==' ')
 				alert('Please select a country');
 			else{
 
+				//Creating a 'button' , setting properties to it and then adding it to html
+
 				var theButton=document.createElement("button");
-				firstdiv.className=buttons;
-				firstdiv.setAttribute("id", "button"+countryNameSelected);
-				firstdiv.setAttribute("value",countryNameSelected);
+				theButton.className="buttons";
+				theButton.setAttribute("id", "button"+countryNameSelected);
+				var buttonValue=document.createTextNode(countryNameSelected);
+				theButton.appendChild(buttonValue);
 				
-				$('#buttonSection').append('theButton');
-
-
-
-
-				var newButton=document.createElement('button');
-				newButton.class=countryNameSelected;
-				$('#buttonSection').append('<input type="button" value="'+countryNameSelected+'"> <br/> <br/>');
+				$('.buttonSection').append(theButton);
 			}
 		}
 
 		function removeButton(){
 
 			var countryNameSelected=$('#removecountryId').val();
+			var requiredId='#'+countryNameSelected;
 			if(countryNameSelected==' ')
 				alert('Please select a country');
 			else{
-				$('#buttonSection').append('<input type="button" value="'+countryNameSelected+'"> <br/> <br/>');
+				//alert('#button'+countryNameSelected);
+				$('.buttonSection').find('#button'+countryNameSelected).remove();
+
+				// alert("removing"+alertName);
 			}
 			
 

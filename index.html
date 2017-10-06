@@ -29,15 +29,15 @@
 
 			var countryNameSelected=$('#removecountryId').val();
 			var requiredId='#'+countryNameSelected;
-			if(countryNameSelected==' ')
-				alert('Please select a country');
-			else{
-				//alert('#button'+countryNameSelected);
-				$('.buttonSection').find('#button'+countryNameSelected).remove();
+			var buttonToRemove=$('.buttonSection').find('#button'+countryNameSelected);
 
-				// alert("removing"+alertName);
+			if(countryNameSelected==' ')
+				alert('Please select a country !');
+			if(buttonToRemove.length == 0)
+				alert('Cannot remove a country that is not previously added. !')
+			else{
+				buttonToRemove.remove();
 			}
-			
 
 		}
 	</script>

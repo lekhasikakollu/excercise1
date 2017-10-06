@@ -1,0 +1,109 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   I. Guidelines:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*** Time to submit, by: THU 09/05 by 4pm
+
+Ideally, full solution should be working... however, submit what you've done till then.
+
+This problem needs you to be familiar with:
+a) HTML/CSS
+b) accessing & updated HTML DOM elements from JS
+c) setInterval/setTimer/clearInterval/clearTimer methods of Window object
+d) closures - implementing & using it effectively
+e) algorithm knowledge - how you implement simplest functions
+f) top down approach - how well you can break down a problem into many sub-tasks, solve them & regroup them for final solution
+g) detail oriented - how well you cover all details / finishing touches mentioned in the problem step by step
+h) ability to read & understand instructions / problem description and translating into work items
+i) using Math.random() & figuring out general math calculations 
+j) how well you'll cleanup runtime resources, coding conventions followed etc.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  II. Problem description:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Build a page that has a drop down box for all countries and a button labelled *Add* next to it.
+ [select the country to add] [ADD] 
+
+When user selects a country and presses Add, that country button should appear in the list below that selection/drop-box.
+e.g. 
+ [select the country to add] [ADD] 
+ ---------------------------------
+ Selected countries are:
+   [INDIA]
+
+If user repeats operation for other countries, it should add more buttons below existing ones.
+e.g.
+ [select the country to add] [ADD] 
+ ---------------------------------
+ Selected countries are:
+   [INDIA]
+   [USA]
+   [CHINA]
+
+If user selects a country whose button is already in the list of buttons below and presses ADD button, that action should be ignored & duplicate buttons should not be added.
+
+There should be another drop down that'll help remove already added countries from the list.
+e.g.
+ [select the country to add]     [ADD] 
+ [select the country to remove]  [REMOVE] 
+ -----------------------------------------
+ Selected countries are:
+   [INDIA]
+   [USA]
+   [CHINA]
+
+If user selects a country in the drop down in 2nd row and presses REMOVE, that country must be removed from the list below it.
+i.e. if user selects CHINA and presses REMOVE, it should be updated to look like below,
+e.g.
+ [select the country to add]     [ADD] 
+ [select the country to remove]  [REMOVE] 
+ -----------------------------------------
+ Selected countries are:
+   [INDIA]
+   [USA]
+
+Every country button should be in different color (randomly chosen, not predefined). 
+
+Whenever a country is selected and ADD is pressed: Apart from adding the button to the DOM/page, a background population counter for that country should be created.
+
+That counter has following 4 params:
+1) Country name
+2) Population in Sep 2011
+3) Birth rate - yearly number of births for every 1000 persons in population
+4) Death rate - yearly number of deaths for every 1000 persons in population
+
+This population counter should be running in the background i.e. continuously tracking population change by every minute (can do every second also, whichever you choose).
+
+Everytime user presses the newly created buttons - its *current* population should be displayed next to it
+e.g. if user presses USA button: page should be updated as follows
+
+ [select the country to add] [ADD] 
+ ---------------------------------
+ Selected countries are:
+   [INDIA]
+   [USA]        326,014,127
+   [CHINA]
+
+If user presses a different country, say INDIA: page should be updated as follows
+
+ [select the country to add] [ADD] 
+ ---------------------------------
+ Selected countries are:
+   [INDIA]      1,281,935,911
+   [USA]
+   [CHINA]
+
+As you might have observed, whenever user presses a button - other countries' population (previous updates) are cleared & current update is shown
+
+Whenever a country is removed, its population country *must* be killed to avoid resource leaks.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  III. Resources:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://www.ecology.com/population-country/
+https://www.cia.gov/library/publications/the-world-factbook/rankorder/2054rank.html
+https://www.cia.gov/library/publications/the-world-factbook/fields/2066.html
+https://www.census.gov/popclock/
